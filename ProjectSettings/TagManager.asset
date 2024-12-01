@@ -5,6 +5,8 @@ TagManager:
   serializedVersion: 2
   tags:
   - Poster
+  - Poster tagger
+  - connector
   layers:
   - Default
   - TransparentFX
