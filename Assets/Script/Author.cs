@@ -8,7 +8,9 @@ public class Author : MonoBehaviour
     public AudioSource voice, mouth, teeth;
     public Animator animator;
 
-    public GameObject user;
+    public GameObject user, userEyes;
+
+    public GameObject head;
     void Start()
     {
         user = GameObject.FindWithTag("Player");
@@ -25,7 +27,10 @@ public class Author : MonoBehaviour
         {
             stopTalking();
         }
-
+        print("author update");
+        
+        transform.LookAt(new Vector3(user.transform.position.x,transform.position.y,user.transform.position.z));
+        head.transform.LookAt(userEyes.transform.position);
     }
 
     public void talking()
