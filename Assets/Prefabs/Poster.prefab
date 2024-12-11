@@ -44,9 +44,9 @@ GameObject:
   - component: {fileID: 4943616472178091893}
   - component: {fileID: 8166545878342336286}
   - component: {fileID: 6198151949677809057}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: poster interface
-  m_TagString: Untagged
+  m_TagString: Poster
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
