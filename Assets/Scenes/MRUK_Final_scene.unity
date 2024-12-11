@@ -7687,7 +7687,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Poster: []
-  displayPrefab: {fileID: 8428364151580304629, guid: 0a0d5952c73190e418d7fd3781994ce1, type: 3}
+  displayPrefab: {fileID: 2744658814884483080, guid: 758b4ce064a0ba142b6098084c5fbaf1, type: 3}
 --- !u!1 &1170307160
 GameObject:
   m_ObjectHideFlags: 0

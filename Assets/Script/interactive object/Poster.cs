@@ -12,7 +12,7 @@ public class Poster : MonoBehaviour
     public float distance;
     void Start()
     {
-        product.SetActive(false);
+        //product.SetActive(false);
 
         user = GameObject.FindWithTag("Player");
         print("user "+user);

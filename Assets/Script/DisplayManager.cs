@@ -33,9 +33,10 @@ public class DisplayManager : MonoBehaviour
 
     public void AddDisPlay()
     {
-        foreach (GameObject poster in Poster)
+        //foreach (GameObject poster in Poster)
         {
-            Instantiate(displayPrefab, transform.position + transform.forward * 2, Quaternion.identity, poster.transform);
+            GameObject display = Instantiate(displayPrefab, transform.position + transform.forward * 2, Quaternion.identity);
+            
         }
     }
 }
