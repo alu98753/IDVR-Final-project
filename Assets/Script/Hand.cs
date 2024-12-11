@@ -2,12 +2,14 @@ using Oculus.Interaction.PoseDetection;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+
 public class Hand : MonoBehaviour
 {
     public OVRHand hand;
     public FingerFeatureStateProvider fingerFeatureStateProvider;
     public float rayDistance = 10f;
     public GameObject aimer;
+    public LineRenderer lineRenderer;
 
     void Start()
     {
@@ -23,19 +25,13 @@ public class Hand : MonoBehaviour
 
             aimming();
 
-
-
-
-
+            print("isstop");
 
         }
         else
         {
             aimer.SetActive(false);
         }
-
-
-
 
     }
 
@@ -49,15 +45,22 @@ public class Hand : MonoBehaviour
 
         // 將方向向量normalize
         direction.Normalize();
+     print("AIMMING");
 
-        print("AAAAAAAAAAA" + origin3);
         RaycastHit hit;
         if (Physics.Raycast(origin3, direction, out hit, rayDistance))//有打到東西
         {
             GameObject author = hit.collider.gameObject;
             author.GetComponent<Author>().stopTalking();
-        }
 
+            //lineRenderer.enabled = true; lineRenderer.SetPosition(0, origin3); lineRenderer.SetPosition(1, hit.point);
+        }
+        else
+        {
+            //lineRenderer.enabled = false;
+            print("AIMMING NOTHIHG");
+        }
+        print("AIMMING2");
     }
 
     bool IsStop()
@@ -69,7 +72,7 @@ public class Hand : MonoBehaviour
         !GetFingerIsCurling(OVRHand.HandFinger.Pinky)
         )
         {
-            print("stop talking");
+            Debug.LogError("stop talking");
             return true;
         }
         return false;

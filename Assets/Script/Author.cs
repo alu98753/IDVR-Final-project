@@ -36,6 +36,8 @@ public class Author : MonoBehaviour
         if (audioClips.Count > 0)
         {
             voice.clip = audioClips[currentIndex];
+            mouth.clip = voice.clip;
+            teeth.clip = voice.clip;
         }
 
     }
@@ -110,10 +112,8 @@ public class Author : MonoBehaviour
 
     public void stopTalking()
     {
-        if (voice.isPlaying)
-        {
-            voice.Stop(); 
-        }
+        print("stop talking");
+        voice.Stop();
         mouth.Stop();
         teeth.Stop();
         animator.SetBool("talking", false);
