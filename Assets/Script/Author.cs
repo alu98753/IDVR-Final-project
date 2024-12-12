@@ -6,12 +6,11 @@ using UnityEngine.Video;
 public class Author : MonoBehaviour
 {
     // Start is called before the first frame update
-    public AudioSource voice, mouth, teeth;
+    public AudioSource voice, mouth;
     public Animator animator;
 
-    public GameObject user, userEyes;
-
-    public GameObject head;
+    public GameObject user;
+    public GameObject displaySet;
 
 
     //以下為poster新增內容
@@ -24,6 +23,7 @@ public class Author : MonoBehaviour
     void Start()
     {
         user = GameObject.FindWithTag("Player");
+        animator = GetComponent<Animator>();
 
         //不播mp4聲音
         videoPlayer.audioOutputMode = VideoAudioOutputMode.None;
@@ -37,7 +37,6 @@ public class Author : MonoBehaviour
         {
             voice.clip = audioClips[currentIndex];
             mouth.clip = voice.clip;
-            teeth.clip = voice.clip;
         }
 
     }
@@ -58,7 +57,6 @@ public class Author : MonoBehaviour
         print("author update");
         
         transform.LookAt(new Vector3(user.transform.position.x,transform.position.y,user.transform.position.z));
-        head.transform.LookAt(userEyes.transform.position);
     }
 
     public void PlayNext()
@@ -79,7 +77,6 @@ public class Author : MonoBehaviour
     {
         voice.Play();
         mouth.Play();
-        teeth.Play();
         animator.SetBool("talking", true);
 
         // Poster video
@@ -115,7 +112,6 @@ public class Author : MonoBehaviour
         print("stop talking");
         voice.Stop();
         mouth.Stop();
-        teeth.Stop();
         animator.SetBool("talking", false);
 
         // Poster video
@@ -136,7 +132,7 @@ public class Author : MonoBehaviour
     public IEnumerator WaitForSecondsBye(float N)
     {
         yield return new WaitForSeconds(N);
-        this.gameObject.SetActive(false);
+        displaySet.SetActive(false);
         Debug.Log("Waited for " + N + " seconds.");
     }
 }

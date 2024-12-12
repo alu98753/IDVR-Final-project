@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UIElements;
 
 public class DisplayManager : MonoBehaviour
 {
@@ -18,11 +19,11 @@ public class DisplayManager : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Z))
         {
-            findPoster();
+           // findPoster();
         }
         if (Input.GetKeyDown(KeyCode.X))
         {
-            AddDisPlay();
+           // AddDisPlay();
         }
     }
 
@@ -35,7 +36,11 @@ public class DisplayManager : MonoBehaviour
     {
         //foreach (GameObject poster in Poster)
         {
-            GameObject display = Instantiate(displayPrefab, transform.position + transform.forward * 2, Quaternion.identity);
+
+            print("POSITION "+Poster[1].transform.position);
+            print("FORWARD "+Poster[1].transform.forward * 2);
+            print("DISPLAY "+Poster[1].transform.position + Poster[1].transform.forward * 2);
+            GameObject display = Instantiate(displayPrefab, Poster[1].transform.position + Poster[1].transform.forward * 2, Quaternion.identity);
             
         }
     }

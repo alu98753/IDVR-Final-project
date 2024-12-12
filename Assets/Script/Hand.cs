@@ -9,7 +9,7 @@ public class Hand : MonoBehaviour
     public FingerFeatureStateProvider fingerFeatureStateProvider;
     public float rayDistance = 10f;
     public GameObject aimer;
-    public LineRenderer lineRenderer;
+   // public LineRenderer lineRenderer;
 
     void Start()
     {
