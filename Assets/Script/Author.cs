@@ -16,8 +16,9 @@ public class Author : MonoBehaviour
     //以下為poster新增內容
     // 新增影片、聲音清單
     public VideoPlayer videoPlayer;
-    public List<VideoClip> videoClips; 
+    public List<VideoClip> videoClips;
     public List<AudioClip> audioClips;
+    public bool JustPlayNext = false;
     private int currentIndex = 0; // 當前播放索引
 
     void Start()
@@ -55,22 +56,27 @@ public class Author : MonoBehaviour
             stopTalking();
         }
         print("author update");
-        
-        transform.LookAt(new Vector3(user.transform.position.x,transform.position.y,user.transform.position.z));
+
+        transform.LookAt(new Vector3(user.transform.position.x, transform.position.y, user.transform.position.z));
     }
 
     public void PlayNext()
     {
         // 停止當前播放
-        stopTalking();
+        if (JustPlayNext)
+        {
+            stopTalking();
 
-        // 切換到下一段影片和聲音
-        currentIndex = (currentIndex + 1) % videoClips.Count; // 循環播放
-        videoPlayer.clip = videoClips[currentIndex];
-        voice.clip = audioClips[currentIndex];
+            // 切換到下一段影片和聲音
+            currentIndex = (currentIndex + 1) % videoClips.Count; // 循環播放
+            videoPlayer.clip = videoClips[currentIndex];
+            voice.clip = audioClips[currentIndex];
 
-        // 開始播放影片和聲音
-        talking();
+            // 開始播放影片和聲音
+            talking();
+            JustPlayNext = true;
+            StartCoroutine(WaitForSecondsCoroutine(3));
+        }
     }
 
     public void talking()
@@ -80,9 +86,9 @@ public class Author : MonoBehaviour
         animator.SetBool("talking", true);
 
         // Poster video
-        if (videoPlayer != null) 
+        if (videoPlayer != null)
         {
-            videoPlayer.Stop(); 
+            videoPlayer.Stop();
             videoPlayer.time = 0; // 重置播放時間到起點
             videoPlayer.Play();
 
@@ -115,10 +121,10 @@ public class Author : MonoBehaviour
         animator.SetBool("talking", false);
 
         // Poster video
-        if (videoPlayer != null) 
+        if (videoPlayer != null)
         {
-            videoPlayer.Stop(); 
-            videoPlayer.time = 0; 
+            videoPlayer.Stop();
+            videoPlayer.time = 0;
 
         }
 
@@ -133,6 +139,13 @@ public class Author : MonoBehaviour
     {
         yield return new WaitForSeconds(N);
         displaySet.SetActive(false);
+        Debug.Log("Waited for " + N + " seconds.");
+    }
+
+    public IEnumerator WaitForSecondsPlayNext(float N)
+    {
+        yield return new WaitForSeconds(N);
+        JustPlayNext = false;
         Debug.Log("Waited for " + N + " seconds.");
     }
 }
