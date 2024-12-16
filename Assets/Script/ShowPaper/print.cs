@@ -20,6 +20,6 @@ public class print : MonoBehaviour
 
         Paper = Instantiate(PapersPrefab, transform.position, Quaternion.identity);
         Paper.transform.position = cameraRig.transform.position + offset;
-        Destroy(this.gameObject);
+        //Destroy(this.gameObject);
     }
 }
