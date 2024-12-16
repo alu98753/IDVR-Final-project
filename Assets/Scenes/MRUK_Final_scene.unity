@@ -8554,6 +8554,24 @@ MonoBehaviour:
     Scaling: 0
     Alignment: 0
     IgnorePrefabSize: 1
+  - Labels: 64
+    Prefabs:
+    - {fileID: 152015501556662048, guid: d916958f17715664dbcb29ffe10ff628, type: 3}
+    PrefabSelection: 0
+    MatchAspectRatio: 0
+    CalculateFacingDirection: 0
+    Scaling: 0
+    Alignment: 0
+    IgnorePrefabSize: 1
+  - Labels: 32
+    Prefabs:
+    - {fileID: 152015501556662048, guid: d916958f17715664dbcb29ffe10ff628, type: 3}
+    PrefabSelection: 0
+    MatchAspectRatio: 0
+    CalculateFacingDirection: 0
+    Scaling: 0
+    Alignment: 0
+    IgnorePrefabSize: 1
 --- !u!1 &1176574743
 GameObject:
   m_ObjectHideFlags: 0
