@@ -418,7 +418,7 @@ MonoBehaviour:
   - {fileID: 2100000, guid: 9929ce5d2b937a549aae456a970336ee, type: 2}
   - {fileID: 2100000, guid: c706843ba8de8204ea7de29d426c2e0a, type: 2}
   it: 0
-  PapersBallPrefab: {fileID: 5861614854560197637, guid: 53cf547b20323eb4ab2a149de9630f6f, type: 3}
+  PapersBallPrefab: {fileID: 1760144138937827585, guid: 01cfff44867990b4ea34ebfba1096818, type: 3}
 --- !u!1 &5413067093384960743
 GameObject:
   m_ObjectHideFlags: 0
