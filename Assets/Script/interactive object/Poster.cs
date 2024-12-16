@@ -16,13 +16,14 @@ public class Poster : MonoBehaviour
     public float distance;
     void Start()
     {
-        user = GameObject.FindWithTag("Player");
-        print("user "+user);
+        user = GameObject.Find("CenterEyeAnchor");
+        //print("user "+user);
     }
 
     // Update is called once per frame
     void Update()
     {
+        //print(UnityEngine.Vector3.Distance(user.transform.position, transform.position));
         if (user != null && UnityEngine.Vector3.Distance(user.transform.position, transform.position) < distance)
         {
             InteractButton.SetActive(true);
@@ -30,10 +31,10 @@ public class Poster : MonoBehaviour
         }
         else if(author!=null&&author.isActiveAndEnabled)
         {
-            print("not in range");
+            //print("not in range");
             author.leave();
             PosterPlane.GetComponent<MeshRenderer>().material = Material;
-            InteractButton.SetActive(false);
+            InteractButton.SetActive(true);
         }
 
     }

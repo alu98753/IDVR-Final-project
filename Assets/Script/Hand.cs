@@ -9,7 +9,7 @@ public class Hand : MonoBehaviour
     public FingerFeatureStateProvider fingerFeatureStateProvider;
     public float rayDistance = 10f;
     public GameObject aimer;
-   // public LineRenderer lineRenderer;
+    // public LineRenderer lineRenderer;
 
     void Start()
     {
@@ -45,7 +45,7 @@ public class Hand : MonoBehaviour
 
         // 將方向向量normalize
         direction.Normalize();
-     print("AIMMING");
+        //print("AIMMING");
 
         RaycastHit hit;
         if (Physics.Raycast(origin3, direction, out hit, rayDistance))//有打到東西
@@ -58,9 +58,9 @@ public class Hand : MonoBehaviour
         else
         {
             //lineRenderer.enabled = false;
-            print("AIMMING NOTHIHG");
+            //print("AIMMING NOTHIHG");
         }
-        print("AIMMING2");
+        // print("AIMMING2");
     }
 
     bool IsStop()

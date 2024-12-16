@@ -11,7 +11,7 @@ public class Author : MonoBehaviour
 
     public GameObject user;
     public GameObject displaySet;
-
+    public PDFViewer viewer;
 
     //以下為poster新增內容
     // 新增影片、聲音清單
@@ -23,22 +23,23 @@ public class Author : MonoBehaviour
 
     void Start()
     {
-        user = GameObject.FindWithTag("Player");
+
+        user = GameObject.Find("CenterEyeAnchor"); ;
         animator = GetComponent<Animator>();
 
         //不播mp4聲音
         videoPlayer.audioOutputMode = VideoAudioOutputMode.None;
 
         // 初始化 VideoPlayer 和 AudioSource
-        if (videoClips.Count > 0)
-        {
-            videoPlayer.clip = videoClips[currentIndex];
-        }
-        if (audioClips.Count > 0)
-        {
-            voice.clip = audioClips[currentIndex];
-            mouth.clip = voice.clip;
-        }
+        //if (videoClips.Count > 0)
+        //{
+        //    videoPlayer.clip = videoClips[currentIndex];
+        //}
+        //if (audioClips.Count > 0)
+        //{
+        //    voice.clip = audioClips[currentIndex];
+        //    mouth.clip = voice.clip;
+        //}
 
     }
 
@@ -55,34 +56,37 @@ public class Author : MonoBehaviour
         {
             stopTalking();
         }
-        print("author update");
+        //print("author update");
 
         transform.LookAt(new Vector3(user.transform.position.x, transform.position.y, user.transform.position.z));
     }
 
     public void PlayNext()
     {
+        print("playnext");
         // 停止當前播放
-        if (JustPlayNext)
+        if (!JustPlayNext)
         {
+            print("playnext2");
             stopTalking();
 
             // 切換到下一段影片和聲音
-            currentIndex = (currentIndex + 1) % videoClips.Count; // 循環播放
             videoPlayer.clip = videoClips[currentIndex];
             voice.clip = audioClips[currentIndex];
+            mouth.clip = audioClips[currentIndex];
+            currentIndex = (currentIndex + 1) % videoClips.Count; // 循環播放
 
             // 開始播放影片和聲音
             talking();
             JustPlayNext = true;
-            StartCoroutine(WaitForSecondsCoroutine(3));
+            StartCoroutine(WaitForSecondsPlayNext(3));
         }
     }
 
     public void PlayPrev()
     {
         // 停止當前播放
-        if (JustPlayNext)
+        if (!JustPlayNext)
         {
             stopTalking();
 
@@ -91,16 +95,17 @@ public class Author : MonoBehaviour
             if (currentIndex < 0) currentIndex += videoClips.Count; // 循環播放
             videoPlayer.clip = videoClips[currentIndex];
             voice.clip = audioClips[currentIndex];
-
+            mouth.clip = audioClips[currentIndex];
             // 開始播放影片和聲音
             talking();
             JustPlayNext = true;
-            StartCoroutine(WaitForSecondsCoroutine(3));
+            StartCoroutine(WaitForSecondsPlayNext(3));
         }
     }
 
     public void talking()
     {
+        print("talking");
         voice.Play();
         mouth.Play();
         animator.SetBool("talking", true);
@@ -112,9 +117,7 @@ public class Author : MonoBehaviour
             videoPlayer.time = 0; // 重置播放時間到起點
             videoPlayer.Play();
 
-            //改用影片長度控制動畫時間
-            float duration = Mathf.Max((float)videoPlayer.clip.length, voice.clip.length);
-            StartCoroutine(WaitForSecondsCoroutine(duration));
+
 
         }
         else
@@ -130,7 +133,7 @@ public class Author : MonoBehaviour
     {
         yield return new WaitForSeconds(N);
         animator.SetBool("talking", false);
-        Debug.Log("Waited for " + N + " seconds.");
+        Debug.Log("Waited for " + N + " seconds.!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
     }
 
     public void stopTalking()
@@ -158,6 +161,8 @@ public class Author : MonoBehaviour
     public IEnumerator WaitForSecondsBye(float N)
     {
         yield return new WaitForSeconds(N);
+        viewer.currentPageIndex = 0;
+        currentIndex = 0;
         displaySet.SetActive(false);
         Debug.Log("Waited for " + N + " seconds.");
     }

@@ -45,23 +45,23 @@ public class Hand1 : MonoBehaviour
 
         // 將方向向量normalize
         direction.Normalize();
-        print("AIMMING");
+        //print("AIMMING");
 
         RaycastHit hit;
         if (Physics.Raycast(origin3, direction, out hit, rayDistance))//有打到東西
         {
             Debug.DrawRay(origin3, direction);
             GameObject author = hit.collider.gameObject;
-            author.GetComponent<Author>().stopTalking();
+            author.GetComponent<Author>().PlayNext();
 
             //lineRenderer.enabled = true; lineRenderer.SetPosition(0, origin3); lineRenderer.SetPosition(1, hit.point);
         }
         else
         {
             //lineRenderer.enabled = false;
-            print("AIMMING NOTHIHG");
+            //print("AIMMING NOTHIHG");
         }
-        print("AIMMING2");
+        //print("AIMMING2");
     }
 
     bool IsGOOD()

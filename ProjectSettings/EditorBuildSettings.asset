@@ -4,7 +4,10 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_Scenes: []
+  m_Scenes:
+  - enabled: 1
+    path: Assets/Scenes/MRUK_Final_scene.unity
+    guid: f4b58299a5b41c8439e4f48282ebcfef
   m_configObjects:
     Unity.XR.Oculus.Settings: {fileID: 11400000, guid: 65fadd85a4dd232429a02eb44175444f, type: 2}
     com.unity.xr.management.loader_settings: {fileID: 11400000, guid: 718375a1a29a5dd4c8482dc3de6bcd00, type: 2}

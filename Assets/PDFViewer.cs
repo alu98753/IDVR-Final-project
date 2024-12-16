@@ -6,7 +6,7 @@ using UnityEngine;
 public class PDFViewer : MonoBehaviour
 {
     public List<Texture2D> pages; // 存放所有頁面的圖片
-    private int currentPageIndex = 0; // 頁索引
+    public int currentPageIndex = 0; // 頁索引
 
     public Renderer planeRenderer;
 
