@@ -154,6 +154,12 @@ public class Author : MonoBehaviour
     }
     public void leave()
     {
+        GameObject[] papers = GameObject.FindGameObjectsWithTag("Paper");
+        foreach (GameObject paper in papers)
+        {
+            Destroy(paper);
+        }
+
         stopTalking();
         animator.SetTrigger("bye");
         StartCoroutine(WaitForSecondsBye(4.73f));
