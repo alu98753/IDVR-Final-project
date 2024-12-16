@@ -50,6 +50,7 @@ public class Hand1 : MonoBehaviour
         RaycastHit hit;
         if (Physics.Raycast(origin3, direction, out hit, rayDistance))//有打到東西
         {
+            Debug.DrawRay(origin3, direction);
             GameObject author = hit.collider.gameObject;
             author.GetComponent<Author>().stopTalking();
 
