@@ -25,7 +25,7 @@ public class Hand : MonoBehaviour
 
             aimming();
 
-            print("isstop");
+            //print("isstop");
 
         }
         else
@@ -72,7 +72,7 @@ public class Hand : MonoBehaviour
         !GetFingerIsCurling(OVRHand.HandFinger.Pinky)
         )
         {
-            Debug.LogError("stop talking");
+            //Debug.LogError("stop talking");
             return true;
         }
         return false;
