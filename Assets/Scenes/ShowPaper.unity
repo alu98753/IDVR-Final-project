@@ -16596,9 +16596,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 1506342866}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8ebd4f7e739464841a6edc43be2f73c2, type: 3}
+  m_Script: {fileID: 11500000, guid: 6d791e70e1baf20408fbc06f6c41132f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  anchorPrefab: {fileID: 4460076763935631420, guid: d4fa5b8295b48894093ea0f00dd9ccaa, type: 3}
+  controller: {fileID: 1506342867}
 --- !u!1 &1509994195
 GameObject:
   m_ObjectHideFlags: 0
@@ -16871,9 +16873,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 1535381504}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1495450688fcb4c4a9a69eca976813ba, type: 3}
+  m_Script: {fileID: 11500000, guid: 712f275195e80a74bab2aaa174b6ae29, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  skippedPages: 
 --- !u!4 &1535381506
 Transform:
   m_ObjectHideFlags: 0
@@ -21895,9 +21898,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 2051859343}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ebd6f8c2c78f0744e8335eabab7c2260, type: 3}
+  m_Script: {fileID: 11500000, guid: b442d1231710dda4685194e85dc646dd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  anchorPrefab: {fileID: 4460076763935631420, guid: d4fa5b8295b48894093ea0f00dd9ccaa, type: 3}
 --- !u!4 &2051859345
 Transform:
   m_ObjectHideFlags: 0
