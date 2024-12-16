@@ -79,6 +79,26 @@ public class Author : MonoBehaviour
         }
     }
 
+    public void PlayPrev()
+    {
+        // 停止當前播放
+        if (JustPlayNext)
+        {
+            stopTalking();
+
+            // 切換到下一段影片和聲音
+            currentIndex = (currentIndex - 1);
+            if (currentIndex < 0) currentIndex += videoClips.Count; // 循環播放
+            videoPlayer.clip = videoClips[currentIndex];
+            voice.clip = audioClips[currentIndex];
+
+            // 開始播放影片和聲音
+            talking();
+            JustPlayNext = true;
+            StartCoroutine(WaitForSecondsCoroutine(3));
+        }
+    }
+
     public void talking()
     {
         voice.Play();

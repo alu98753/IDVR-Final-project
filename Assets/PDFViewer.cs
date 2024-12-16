@@ -12,13 +12,16 @@ public class PDFViewer : MonoBehaviour
 
     void Start()
     {
+
+    }
+    public void initPaper()
+    {
         if (pages.Count > 0)
         {
             // 初始化第一頁
             planeRenderer.material.mainTexture = pages[currentPageIndex];
         }
     }
-
     void Update()
     {
         // 按下 A 鍵時翻到上一頁

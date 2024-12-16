@@ -8675,7 +8675,7 @@ MonoBehaviour:
     IgnorePrefabSize: 1
   - Labels: 64
     Prefabs:
-    - {fileID: 152015501556662048, guid: d916958f17715664dbcb29ffe10ff628, type: 3}
+    - {fileID: 152015501556662048, guid: 6ecfc3dcf234f6e43a0054b14ba15ed5, type: 3}
     PrefabSelection: 0
     MatchAspectRatio: 0
     CalculateFacingDirection: 0
@@ -8684,7 +8684,7 @@ MonoBehaviour:
     IgnorePrefabSize: 1
   - Labels: 32
     Prefabs:
-    - {fileID: 152015501556662048, guid: d916958f17715664dbcb29ffe10ff628, type: 3}
+    - {fileID: 152015501556662048, guid: dc214107e3bfbf349b9f838bb5689ba4, type: 3}
     PrefabSelection: 0
     MatchAspectRatio: 0
     CalculateFacingDirection: 0

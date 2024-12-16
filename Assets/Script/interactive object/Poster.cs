@@ -9,6 +9,10 @@ public class Poster : MonoBehaviour
     public GameObject displaySet;
     public Author author;
     public GameObject user;
+    public GameObject InteractButton;
+    public GameObject PosterPlane;
+    public Material Material;
+
     public float distance;
     void Start()
     {
@@ -21,15 +25,23 @@ public class Poster : MonoBehaviour
     {
         if (user != null && UnityEngine.Vector3.Distance(user.transform.position, transform.position) < distance)
         {
-            displaySet.SetActive(true);
+            InteractButton.SetActive(true);
 
         }
         else if(author!=null&&author.isActiveAndEnabled)
         {
             print("not in range");
             author.leave();
+            PosterPlane.GetComponent<MeshRenderer>().material = Material;
+            InteractButton.SetActive(false);
         }
 
+    }
+    public void InteractStart()
+    {
+        displaySet.SetActive(true);
+        PosterPlane.GetComponent<PDFViewer>().initPaper();
+        InteractButton.SetActive(false);
     }
 
 }
