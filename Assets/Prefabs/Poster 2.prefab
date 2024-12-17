@@ -54,7 +54,7 @@ MonoBehaviour:
   InteractButton: {fileID: 2214049546496870118}
   PosterPlane: {fileID: 7345369912554515466}
   Material: {fileID: 2100000, guid: 487a155e7f98cf84bad8375752a59ea6, type: 2}
-  distance: 5
+  distance: 4
 --- !u!1 &652912016320559163
 GameObject:
   m_ObjectHideFlags: 0
@@ -305,7 +305,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &4716248746814564483
 Transform:
   m_ObjectHideFlags: 0
@@ -415,9 +415,17 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 8673729998462078584}
     m_Modifications:
+    - target: {fileID: 3873110281397796841, guid: 1b448aba91da08641bb0ef066c66bc9d, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 64ad3c727a203cb4a8717e9a4bb388e5, type: 2}
     - target: {fileID: 4752718383056050769, guid: 1b448aba91da08641bb0ef066c66bc9d, type: 3}
       propertyPath: m_Name
       value: InteractButton
+      objectReference: {fileID: 0}
+    - target: {fileID: 4752718383056050769, guid: 1b448aba91da08641bb0ef066c66bc9d, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6018089612708935384, guid: 1b448aba91da08641bb0ef066c66bc9d, type: 3}
       propertyPath: m_LocalPosition.x

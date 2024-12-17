@@ -55,7 +55,7 @@ MonoBehaviour:
   InteractButton: {fileID: 2214049546496870118}
   PosterPlane: {fileID: 7345369912554515466}
   Material: {fileID: 2100000, guid: 487a155e7f98cf84bad8375752a59ea6, type: 2}
-  distance: 5
+  distance: 4
 --- !u!1 &652912016320559163
 GameObject:
   m_ObjectHideFlags: 0
@@ -306,7 +306,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &4716248746814564483
 Transform:
   m_ObjectHideFlags: 0
@@ -641,6 +641,10 @@ PrefabInstance:
       propertyPath: m_audioClip
       value: 
       objectReference: {fileID: 8300000, guid: a9260d78b830c464c9cc32126955ff56, type: 3}
+    - target: {fileID: 210341119538143848, guid: 0a0d5952c73190e418d7fd3781994ce1, type: 3}
+      propertyPath: m_PlayOnAwake
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1143596841819080539, guid: 0a0d5952c73190e418d7fd3781994ce1, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0.37
@@ -761,6 +765,10 @@ PrefabInstance:
       propertyPath: MinDistance
       value: 3
       objectReference: {fileID: 0}
+    - target: {fileID: 5047981194239804978, guid: 0a0d5952c73190e418d7fd3781994ce1, type: 3}
+      propertyPath: poster
+      value: 
+      objectReference: {fileID: 4924322799883744912}
     - target: {fileID: 5047981194239804978, guid: 0a0d5952c73190e418d7fd3781994ce1, type: 3}
       propertyPath: viewer
       value: 
@@ -903,6 +911,10 @@ PrefabInstance:
     - target: {fileID: 4752718383056050769, guid: 1b448aba91da08641bb0ef066c66bc9d, type: 3}
       propertyPath: m_Name
       value: InteractButton
+      objectReference: {fileID: 0}
+    - target: {fileID: 4752718383056050769, guid: 1b448aba91da08641bb0ef066c66bc9d, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6018089612708935384, guid: 1b448aba91da08641bb0ef066c66bc9d, type: 3}
       propertyPath: m_LocalPosition.x

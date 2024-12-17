@@ -12,6 +12,7 @@ public class Author : MonoBehaviour
     public GameObject user;
     public GameObject displaySet;
     public PDFViewer viewer;
+    public Poster poster;
 
     //以下為poster新增內容
     // 新增影片、聲音清單
@@ -154,12 +155,6 @@ public class Author : MonoBehaviour
     }
     public void leave()
     {
-        GameObject[] papers = GameObject.FindGameObjectsWithTag("Paper");
-        foreach (GameObject paper in papers)
-        {
-            Destroy(paper);
-        }
-
         stopTalking();
         animator.SetTrigger("bye");
         StartCoroutine(WaitForSecondsBye(4.73f));
@@ -169,8 +164,30 @@ public class Author : MonoBehaviour
         yield return new WaitForSeconds(N);
         viewer.currentPageIndex = 0;
         currentIndex = 0;
+
+        poster.PosterPlane.GetComponent<MeshRenderer>().material = poster.Material;
+
+
         displaySet.SetActive(false);
         Debug.Log("Waited for " + N + " seconds.");
+
+
+
+        GameObject[] papers = GameObject.FindGameObjectsWithTag("Paper");
+        foreach (GameObject paper in papers)
+        {
+            Destroy(paper);
+        }
+
+        GameObject[] paperballs = GameObject.FindGameObjectsWithTag("Paper_Ball_");
+        foreach (GameObject paperball in paperballs)
+        {
+            Destroy(paperball);
+        }
+
+        GameObject PPM;
+        PPM = GameObject.Find("PaperPageManager");
+        PPM.GetComponent<PaperPageManager>().skippedPages.Clear();
     }
 
     public IEnumerator WaitForSecondsPlayNext(float N)

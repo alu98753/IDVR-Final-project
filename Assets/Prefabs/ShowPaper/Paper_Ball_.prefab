@@ -131,7 +131,7 @@ GameObject:
   - component: {fileID: 6514864459509862130}
   m_Layer: 0
   m_Name: Paper_Ball_
-  m_TagString: Untagged
+  m_TagString: Paper_Ball_
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

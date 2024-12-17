@@ -7,6 +7,14 @@ TagManager:
   - Poster
   - Poster tagger
   - connector
+  - RightFingerAnchor
+  - Anchor
+  - Button
+  - Paper
+  - bag
+  - LeftHandAnchor
+  - RightHandAnchor
+  - Paper_Ball_
   layers:
   - Default
   - TransparentFX

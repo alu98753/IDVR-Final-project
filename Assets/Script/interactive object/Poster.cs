@@ -12,6 +12,7 @@ public class Poster : MonoBehaviour
     public GameObject InteractButton;
     public GameObject PosterPlane;
     public Material Material;
+    bool IsInteract = false;
 
     public float distance;
     void Start()
@@ -26,23 +27,39 @@ public class Poster : MonoBehaviour
         //print(UnityEngine.Vector3.Distance(user.transform.position, transform.position));
         if (user != null && UnityEngine.Vector3.Distance(user.transform.position, transform.position) < distance)
         {
+            PosterPlane.SetActive(true);
             InteractButton.SetActive(true);
 
         }
-        else if(author!=null&&author.isActiveAndEnabled)
+        else if (author != null && author.isActiveAndEnabled)
         {
             //print("not in range");
             author.leave();
-            PosterPlane.GetComponent<MeshRenderer>().material = Material;
-            InteractButton.SetActive(true);
+            //PosterPlane.GetComponent<MeshRenderer>().material = Material;
+            PosterPlane.SetActive(false);
+            InteractButton.SetActive(false);
+        }
+        else if (user != null && UnityEngine.Vector3.Distance(user.transform.position, transform.position) > distance)
+        {
+
+            PosterPlane.SetActive(false);
+            InteractButton.SetActive(false);
         }
 
     }
     public void InteractStart()
     {
-        displaySet.SetActive(true);
-        PosterPlane.GetComponent<PDFViewer>().initPaper();
-        InteractButton.SetActive(false);
+        if (!displaySet.activeSelf)
+        {
+            displaySet.SetActive(true);
+            PosterPlane.GetComponent<PDFViewer>().initPaper();
+            InteractButton.SetActive(false);
+
+        }
+        else
+        {
+            author.leave();
+        }
     }
 
 }
